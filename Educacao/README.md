@@ -1,4 +1,4 @@
-# Conexão Aluno-Professor - Web e Mobile
+# Educacional - Web e Mobile
 
 Este projeto é uma aplicação Full-Stack desenvolvida para facilitar a conexão entre alunos e professores. A aplicação permite que professores registrem aulas, incluindo informações como disciplina, custo e horário, enquanto os alunos podem buscar por aulas disponíveis de acordo com suas necessidades.
 
