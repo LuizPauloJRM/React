@@ -1,125 +1,153 @@
-# Educacional - Web e Mobile
-
-Este projeto é uma aplicação Full-Stack desenvolvida para facilitar a conexão entre alunos e professores. A aplicação permite que professores registrem aulas, incluindo informações como disciplina, custo e horário, enquanto os alunos podem buscar por aulas disponíveis de acordo com suas necessidades.
-
 ## Tecnologias Utilizadas
-- **Frontend Web**: ReactJS + TypeScript
-- **Aplicativo Mobile**: React Native + Expo
-- **Backend**: Node.js + Express + TypeScript
-- **Comunicação entre Frontend e Backend**: Axios
-- **Banco de Dados**: A ser definido (MongoDB, PostgreSQL ou MySQL)
 
----
-
+- **Front-End**: React, TypeScript, Axios, React Router, Tailwind CSS
+- **Back-End**: Node.js, Express, TypeScript
+- **Banco de Dados**: [Escolher um banco de dados, como MongoDB ou PostgreSQL]
+- **Autenticação**: JWT (JSON Web Token)
+  
 ## Funcionalidades
-### Professores
-- Cadastro e login.
-- Registro de aulas com:
-  - Nome da disciplina.
-  - Valor da aula.
-  - Horário disponível.
-- Gerenciamento das aulas registradas.
 
-### Alunos
-- Cadastro e login.
-- Busca de aulas com filtros por disciplina, preço e horário.
-- Sistema de favoritos para salvar aulas.
+### Para Professores:
+- Registrar novas aulas, incluindo informações como disciplina, custo e horário.
+- Visualizar aulas registradas.
+- Editar ou excluir aulas já cadastradas.
 
----
+### Para Alunos:
+- Pesquisar e visualizar aulas disponíveis.
+- Inscrever-se em aulas (se aplicável).
 
-## Estrutura do Projeto
-### Backend
-Localizado na pasta `server`.
-- **Endpoints principais**:
-  - `POST /auth/register`: Cadastro de usuários.
-  - `POST /auth/login`: Login de usuários.
-  - `POST /classes`: Registro de aulas (somente para professores).
-  - `GET /classes`: Busca de aulas com filtros (alunos).
-  - `PUT /classes/:id`: Atualização de aulas.
-  - `DELETE /classes/:id`: Remoção de aulas.
-- **Ferramentas utilizadas**:
-  - Express para criar as APIs.
-  - TypeORM (ou Mongoose) para gerenciamento do banco de dados.
-  - JWT para autenticação.
+### Funcionalidades Comuns:
+- Autenticação de usuários (professores e alunos) utilizando JWT.
+- Interface intuitiva e responsiva.
+- Dashboards separados para professores e alunos.
 
-### Frontend Web
-Localizado na pasta `web`.
-- **Páginas principais**:
-  - Login e registro de usuários.
-  - Dashboard do professor para registrar e gerenciar aulas.
-  - Tela de busca para alunos com filtros.
-- **Bibliotecas adicionais**:
-  - React Router Dom para navegação.
-  - Tailwind CSS ou Material-UI para estilização.
+## Requisitos
 
-### Aplicativo Mobile
-Localizado na pasta `mobile`.
-- **Telas principais**:
-  - Login e registro.
-  - Lista de aulas disponíveis com filtros interativos.
-  - Tela de detalhes da aula com opção de favoritar.
-- **Ferramentas utilizadas**:
-  - Expo para simplificar o desenvolvimento mobile.
-  - React Navigation para navegação.
+- **Node.js** (versão LTS recomendada)
+- **npm** ou **yarn**
+- **MongoDB** ou **PostgreSQL** (dependendo da escolha do banco de dados)
 
----
+## Como Rodar o Projeto
 
-## Como Executar o Projeto
+### 1. Clonar o repositório
 
-### Pré-requisitos
-Certifique-se de ter instalado:
-- Node.js (v16 ou superior).
-- NPM ou Yarn.
-- Expo CLI para o aplicativo mobile.
-- Banco de dados (MongoDB/PostgreSQL/MySQL).
-
-### Backend
-1. Acesse a pasta `server`:
-   ```bash
-   cd server
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
+2. Instalar dependências
+Back-End
+Navegue até o diretório do back-end:
+bash
+Copiar código
+cd backend
 Instale as dependências:
 bash
 Copiar código
 npm install
-Configure o arquivo .env com as variáveis:
-makefile
-Copiar código
-DATABASE_URL=<sua_url_do_banco>
-JWT_SECRET=<sua_chave_secreta>
-Execute o servidor:
-bash
-Copiar código
-npm run dev
-Frontend Web
-Acesse a pasta web:
-bash
-Copiar código
-cd web
-Instale as dependências:
-bash
-Copiar código
-npm install
-Execute o projeto:
+Inicie o servidor:
 bash
 Copiar código
 npm start
-Aplicativo Mobile
-Acesse a pasta mobile:
+O back-end estará disponível em http://localhost:5000 (ou na porta configurada).
+
+Front-End
+Navegue até o diretório do front-end:
 bash
 Copiar código
-cd mobile
+cd frontend
 Instale as dependências:
 bash
 Copiar código
 npm install
-Inicie o projeto com Expo:
+Inicie o servidor:
 bash
 Copiar código
-expo start
-Estrutura de Pastas
-bash
+npm start
+O front-end estará disponível em http://localhost:3000.
+
+Estrutura do Projeto
+Backend
+src/controllers: Controladores responsáveis pelas regras de negócios.
+src/routes: Definição das rotas da API.
+src/models: Definições de modelos de dados.
+src/services: Serviços auxiliares, como autenticação e interações com o banco de dados.
+Frontend
+src/components: Componentes reutilizáveis.
+src/pages: Páginas principais (Login, Dashboard, etc).
+src/services: Comunicação com a API utilizando Axios.
+src/styles: Arquivos de estilos, incluindo configurações do Tailwind CSS.
+Endpoints da API
+POST /aulas
+Registra uma nova aula para o professor.
+
+Corpo da requisição:
+
+json
 Copiar código
-project-root/
-├── server/          # Backend
-├── web/             # Frontend Web
-└── mobile/          # Aplicativo Mobile
+{
+  "disciplina": "Matemática",
+  "custo": 100,
+  "horario": "Segunda-feira às 10h",
+  "professorId": "123"
+}
+Resposta:
+
+json
+Copiar código
+{
+  "message": "Aula registrada com sucesso!"
+}
+GET /aulas
+Retorna todas as aulas registradas.
+
+Resposta:
+
+json
+Copiar código
+[
+  {
+    "id": "1",
+    "disciplina": "Matemática",
+    "custo": 100,
+    "horario": "Segunda-feira às 10h",
+    "professorId": "123"
+  },
+  {
+    "id": "2",
+    "disciplina": "Física",
+    "custo": 120,
+    "horario": "Terça-feira às 14h",
+    "professorId": "124"
+  }
+]
+POST /inscricao
+Permite que um aluno se inscreva em uma aula.
+
+Corpo da requisição:
+
+json
+Copiar código
+{
+  "aulaId": "1",
+  "alunoId": "456"
+}
+Resposta:
+
+json
+Copiar código
+{
+  "message": "Inscrição realizada com sucesso!"
+}
+Contribuições
+Contribuições são bem-vindas! Para contribuir:
+
+Fork este repositório.
+Crie uma nova branch para sua modificação (git checkout -b minha-modificacao).
+Realize suas mudanças.
+Envie um pull request.
+Licença
+Este projeto está licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.
+
+Contato
+Email: seuemail@dominio.com
+GitHub: seu-usuario
