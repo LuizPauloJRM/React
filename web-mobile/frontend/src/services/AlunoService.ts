@@ -1,7 +1,7 @@
 // src/services/alunoService.ts
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/alunos'; // Altere para a URL do seu backend
+const API_URL = 'http://localhost:5000/api/alunos'; 
 
 // Função para pegar a lista de alunos
 export const getAlunos = async () => {

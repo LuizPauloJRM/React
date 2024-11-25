@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors'; // Importar o CORS
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -7,7 +8,7 @@ dotenv.config();
 import { alunoRoutes } from './routes/alunosRoutes';
 
 const app = express();
-
+app.use(cors()); // Habilitar CORS
 app.use(express.json());
 
 // Conectar ao banco de dados MongoDB
