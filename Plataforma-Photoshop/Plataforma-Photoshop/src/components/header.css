@@ -1,0 +1,59 @@
+header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white; /* ou a cor do seu header */
+    z-index: 1000; /* garante que fique acima de outros elementos */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* opcional: sombra ao rolar */
+  }
+  /* Ajuste a altura do main para não ficar escondido atrás do header */
+main.container {
+  margin-top: 80px; /* ajuste conforme a altura do seu header */
+}
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #00bcd4;
+  }
+  
+  .btn {
+    background-color: #00bcd4;
+    color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background-color: #0097a7;
+    color: white;
+  }
+  
